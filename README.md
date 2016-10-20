@@ -1,2 +1,2 @@
 # TestSSM
-第一个SSM框架整合
+第一个Spring、Spring-mvc、Mybatis框架整合，项目管理工具用的是maven
