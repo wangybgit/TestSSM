@@ -3,6 +3,8 @@ package com.wyb.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +16,18 @@ import com.wyb.service.impl.UserServiceImpl;
 @Controller  
 @RequestMapping("/user")  
 public class UserController {  
+	
+	private static final Logger LOG=Logger.getLogger(UserController.class);
 //    @Resource  
 //    private IUserService userService;  
-	@Resource  
-	private UserServiceImpl userService; 
+	@Autowired  
+	private IUserService userService; 
+	
+//	@Autowired
+//	private UserServiceImpl userService;
+	 
       
-    @RequestMapping("/showUser")  
+    @RequestMapping("/showUser")   
     public String toIndex(String id,Model model){  
         //int userId = Integer.parseInt(request.getParameter("id"));  
     	int userId = Integer.parseInt(id);  

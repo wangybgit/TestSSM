@@ -1,5 +1,9 @@
 package com.wyb.dao;
 
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.wyb.domain.User;
 
 public interface IUserDao {
@@ -14,4 +18,8 @@ public interface IUserDao {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    
+    User findUserByNameAndPsw(@Param("map") Map<String,String> map);
+
+    User findUserByUserName(String username);
 }

@@ -11,7 +11,8 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">  
     <!-- 自动扫描 -->  
     <context:component-scan base-package="com.wyb" />  
-    <!-- 引入配置文件 -->  
+    <!-- 引入配置文件 -->
+    <!-- PropertyPlaceholderConfigurer类可以配置文件中的属性值，放在bean中，而后该属性值可以通过${key}来获取 -->  
     <bean id="propertyConfigurer"  
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
         <property name="location" value="classpath:jdbc.properties" />  
