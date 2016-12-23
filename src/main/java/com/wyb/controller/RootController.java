@@ -38,21 +38,26 @@ public class RootController {
 		User user=userService.findUserByUsernameAndPsw(map);
 		if(user==null){
 			m.addAttribute("msg","用户信息不存在，请注册！");
-			return "/register";
+			return "/jsp/register";
 		}
 		session.setAttribute("user", user);
 		User sessionuser=(User)session.getAttribute("user");
 		System.out.println("session username:"+sessionuser.getUserName());
-//		System.out.println("username:"+user.getUserName());
-//		System.out.println("password:"+ user.getPassword());
-//		System.out.println("age:"+user.getAge());
-		return "/hello"; 
+
+		return "/jsp/hello"; 
+	}
+	
+	@RequestMapping(value="/logout")
+	public String logout(HttpSession session){
+		//session.setAttribute("user", null);
+		session.invalidate();  
+		return "/jsp/login";
 	}
 	
 	@RequestMapping(value="/register")
 	public String register(){
 		LOG.info("this is register page!");
-		return "/register";
+		return "/jsp/register";
 	}
 	
 	@RequestMapping(value="/registerCheck")
@@ -61,12 +66,12 @@ public class RootController {
 		if(user1!=null){
 			LOG.info("该用户名已被注册");
 			m.addAttribute("msg","该用户名已被注册");
-			return "/register";
+			return "/jsp/register";
 		}
 		if(user.getUserName().equals("")||user.getPassword().equals("")){
 				LOG.info("未输入注册信息");
 				m.addAttribute("msg","请输入注册信息");
-				return "/register";
+				return "/jsp/register";
 		}
 		int n=userService.insert(user);
 		if(n<0){
@@ -74,6 +79,6 @@ public class RootController {
 			return "/register";
 		}
 		LOG.info("注册成功！！！");
-		return "/login";
+		return "/jsp/login";
 	}
 }

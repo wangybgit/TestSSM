@@ -36,10 +36,6 @@ public class LoginFilter implements Filter{
         HttpServletResponse res=(HttpServletResponse)response;
         
         System.out.println("实际方法执行前！！！");
-//		Object user = Requests.getSession().getAttribute("user");
-//        if(user==null){
-//        	request.getRequestDispatcher("/login").forward(request, response);
-//        }
         HttpSession session=req.getSession(true);
         User user=(User)session.getAttribute("user");
         if(user==null){

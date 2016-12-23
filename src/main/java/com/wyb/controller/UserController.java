@@ -25,7 +25,6 @@ public class UserController {
 	
 //	@Autowired
 //	private UserServiceImpl userService;
-	 
       
     @RequestMapping("/showUser")   
     public String toIndex(String id,Model model){  
@@ -33,6 +32,6 @@ public class UserController {
     	int userId = Integer.parseInt(id);  
         User user = this.userService.getUserById(userId);  
         model.addAttribute("user", user);  
-        return "/showUser";  
+        return "/jsp/showUser";  
     }  
 }  
