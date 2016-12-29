@@ -60,7 +60,7 @@
 ```java
 Java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig.xml -overwrite
 ```
-###执行成功后即可生成相应表对应的实体、接口和xml配置文件
+-执行成功后即可生成相应表对应的实体、接口和xml配置文件
 ###2、由于本项目为maven项目，在将该项目部署到tomcat上时，需要把maven包也部署到tomcat上。
   
   -操作方法：项目右键->Properties->Deployment Assembly->add->Java Bulid Path Entries->maven Dependencies.
