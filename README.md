@@ -56,7 +56,7 @@
     </context>    
 </generatorConfiguration> 
 ```
-- 3、在cmd命令行下运行命令：
+- 3、在项目根目录下运行cmd命令：
 ```java
 Java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig.xml -overwrite
 ```
