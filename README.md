@@ -16,8 +16,7 @@
 #注：
 ###1、使用mybatis generator自动生成Mybatis表实体、接口、配置文件
 - 1、下载相关包及配置ganeratorConfig.xml配置文件，将相关包拷贝到项目根目录下：
--- 如上所示：
--- 相关包有：mybatis-3.2.6.jar、mybatis-generator-core-1.3.2.jar、mysql-generator-java-5.1.7-bin.jar
+-   相关包有：mybatis-3.2.6.jar、mybatis-generator-core-1.3.2.jar、mysql-generator-java-5.1.7-bin.jar
 - 2、ganeratorConfig.xml文件配置如下：
 ```java
 <?xml version="1.0" encoding="UTF-8"?>    
