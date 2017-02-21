@@ -7,7 +7,11 @@
     <!-- Spring和mybatis的配置文件 -->  
     <context-param>  
         <param-name>contextConfigLocation</param-name>  
-        <param-value>classpath:spring-mybatis.xml</param-value>  
+        <param-value>
+        classpath:spring-mybatis.xml
+        </param-value>  
+        
+
     </context-param>  
     <!-- 编码过滤器 -->  
     <filter>  
@@ -54,14 +58,18 @@
     </welcome-file-list>  
     
 <!-- 过滤器实现权限验证 -->
-<!--   <filter> -->
-<!--     <filter-name>LoginFilter</filter-name> -->
-<!--     <filter-class>com.wyb.filter.LoginFilter</filter-class> -->
-<!--   </filter> -->
-<!--   <filter-mapping> -->
-<!--     <filter-name>LoginFilter</filter-name> -->
-<!--     <url-pattern>/*</url-pattern> -->
-<!--   </filter-mapping> -->
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>com.wyb.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    
+  </filter-mapping>
+
+
+
 
 
 </web-app>  

@@ -9,13 +9,14 @@ public class AllInterceptor implements WebRequestInterceptor {
 	@Override
 	public void afterCompletion(WebRequest arg0, Exception arg1) throws Exception {
 		// TODO Auto-generated method stub
-		
+		System.out.println("this is afterCompletion of AllInterceptor!");
+
 	}
 
 	@Override
 	public void postHandle(WebRequest arg0, ModelMap arg1) throws Exception {
 		// TODO Auto-generated method stub
-		
+		System.out.println("this is postHandle of AllInterceptor!");
 	}
 
 	@Override

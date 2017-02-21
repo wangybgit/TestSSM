@@ -27,21 +27,42 @@ public class LoginFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		
+		
         //对request和response进行一些预处理
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         
+        //不拦截的访问
+        String []notFilter={"/login","index.jsp"};
+              
         HttpServletRequest req=(HttpServletRequest)request;
         HttpServletResponse res=(HttpServletResponse)response;
         
+        
+        String uri=req.getRequestURI();
+        
+        System.out.println("uri:"+uri);
         System.out.println("实际方法执行前！！！");
         HttpSession session=req.getSession(true);
         User user=(User)session.getAttribute("user");
-        if(user==null){
-        	request.getRequestDispatcher("/login.jsp").forward(request, response);
+        boolean doFilter=true;
+        	
+        for(String s:notFilter){
+        	if(uri.contains(s)){
+        		doFilter=false;
+        		break;
+        	}
         }
-        chain.doFilter(request, response);  //让目标资源执行，放行
+        
+        System.out.println("doFilter:"+doFilter);
+        	if(user==null&&doFilter==true){     		
+        			System.out.println("=======no user=======");
+        			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);       		
+        	}else{
+        		chain.doFilter(request, response);  //让目标资源执行，放行
+        	}
         System.out.println("实际方法执行后！！！");
 		 
 	}

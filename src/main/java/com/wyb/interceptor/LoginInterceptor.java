@@ -14,14 +14,14 @@ public class LoginInterceptor implements HandlerInterceptor{
 	@Override
 	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-		// TODO Auto-generated method stub
+		System.out.println("this is afterCompletion of LoginInterceptor");
 		
 	}
 
 	@Override
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
 			throws Exception {
-		// TODO Auto-generated method stub
+		System.out.println("this is postHandle of LoginInterceptor");
 		
 	}
 
@@ -32,10 +32,12 @@ public class LoginInterceptor implements HandlerInterceptor{
 		HttpSession session=request.getSession();
 		User user=(User)session.getAttribute("user");
 		if(user==null){
+			System.out.println("no user in LoginInterceptor!!!");
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
-		}
-		
-			
+			//本次访问被拦截，业务逻辑不继续执行
+			return false;
+		}	
+		//返回true代表继续往下执行
 		return true;
 	}
 

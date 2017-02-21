@@ -1,5 +1,6 @@
 package com.wyb.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
@@ -22,4 +23,6 @@ public interface IUserDao {
     User findUserByNameAndPsw(@Param("map") Map<String,String> map);
 
     User findUserByUserName(String username);
+    
+    List<User> findAllUser();
 }

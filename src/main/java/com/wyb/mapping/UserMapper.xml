@@ -32,6 +32,12 @@
   	where user_name=#{username,jdbcType=VARCHAR} 
   </select>
   
+  <select id="findAllUser" resultMap="userMap" >
+  	select 
+  	<include refid="Base_Column_List" />
+  	from user_t
+  </select>
+  
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user_t
@@ -98,4 +104,12 @@
       age = #{age,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  
+   	<resultMap type="com.wyb.domain.User" id="userMap">
+		<id column="id" property="id" />
+		<result column="user_name" property="userName" />
+		<result column="password" property="password" />
+		<result column="age" property="age" />
+	</resultMap>
 </mapper>

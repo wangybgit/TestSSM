@@ -1,5 +1,6 @@
 package com.wyb.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -32,6 +33,11 @@ public class UserServiceImpl implements IUserService {
 	public User findUserByUserName(String username) {
 		// TODO Auto-generated method stub
 		return this.userDao.findUserByUserName(username);
+	}
+	@Override
+	public List<User> findAllUser() {
+		// TODO Auto-generated method stub
+		return userDao.findAllUser();
 	}
     
     
