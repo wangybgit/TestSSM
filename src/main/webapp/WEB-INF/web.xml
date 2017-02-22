@@ -9,6 +9,7 @@
         <param-name>contextConfigLocation</param-name>  
         <param-value>
         classpath:spring-mybatis.xml
+        classpath:mybatis-config.xml
         </param-value>  
         
 
@@ -36,6 +37,14 @@
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>  
     </listener>  
   
+	<servlet-mapping>  
+  		<servlet-name>default</servlet-name>  
+  		<url-pattern>*.js</url-pattern>  
+  		<url-pattern>*.css</url-pattern>  
+  		<url-pattern>/assets/*"</url-pattern>  
+  		<url-pattern>/images/*</url-pattern>  
+	</servlet-mapping>  
+
     <!-- Spring MVC核心 servlet -->  
     <servlet>  
         <servlet-name>SpringMVC</servlet-name>  
@@ -52,7 +61,11 @@
         <servlet-name>SpringMVC</servlet-name>  
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->  
         <url-pattern>/</url-pattern>  
-    </servlet-mapping>  
+    </servlet-mapping>
+    
+  
+    
+      
     <welcome-file-list>  
         <welcome-file>/index.jsp</welcome-file>  
     </welcome-file-list>  

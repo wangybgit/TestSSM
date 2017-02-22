@@ -35,7 +35,7 @@ public class LoginFilter implements Filter{
         response.setContentType("text/html;charset=UTF-8");
         
         //不拦截的访问
-        String []notFilter={"/login","index.jsp"};
+        String []notFilter={"/login","index.jsp",".js",".css"};
               
         HttpServletRequest req=(HttpServletRequest)request;
         HttpServletResponse res=(HttpServletResponse)response;

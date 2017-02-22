@@ -36,7 +36,7 @@ public class UserServiceImpl implements IUserService {
 	}
 	@Override
 	public List<User> findAllUser() {
-		// TODO Auto-generated method stub
+
 		return userDao.findAllUser();
 	}
     
